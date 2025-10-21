@@ -4,13 +4,13 @@ module demultiplexer(
     output [3:0] Aout, [3:0] Bout, [3:0] Cout, [3:0] Dout
     );
     
-    wire w[3:0];
+//    wire w1[1:0], w2[1:0], w3[1:0], w4[1:0];
     
-    equivalence_check check(.select(Sel), .is_zero(w[0]), .is_one(w[1]), .is_two(w[2]), is_three(w[3]));
+//    equivalence_check check(.select(Sel), .is_zero(w1), .is_one(w2), .is_two(w3), is_three(w4));
     
-    assign Aout = (w[0] == 'b00 ? In : 0) & Enable; //0
-    assign Bout = (w[1] == 'b01 ? In : 0) & Enable; //1
-    assign Cout = (w[2] == 'b10 ? In : 0) & Enable; //2
-    assign Dout = (w[3] == 'b11 ? In : 0) & Enable; //3
+    assign Aout = (Sel == 'b00 ? In : 0) & Enable; //0
+    assign Bout = (Sel == 'b01 ? In : 0) & Enable; //1
+    assign Cout = (Sel == 'b10 ? In : 0) & Enable; //2
+    assign Dout = (Sel == 'b11 ? In : 0) & Enable; //3
     
 endmodule

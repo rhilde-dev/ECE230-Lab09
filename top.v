@@ -6,7 +6,7 @@ module top(
     
     wire w1, con_mux, con_demux;
     
-    assign con_mux = concat(btnU, btnL);
+    assign con_mux = {btnU, btnL};
     
     multiplexer mux (
         .A(sw[3:0]), //CEO
@@ -18,11 +18,10 @@ module top(
         .Y(w1)
     );
     
-    assign con_demux = concat(btnR, btnD);
+    assign con_demux = {btnR, btnD};
     
     demultiplexer demux (
         .In(w1),
-        .Enable(btnC),
         .Sel(con_demux),
         .Aout(led[3:0]), //data at library
         .Bout(led[7:4]), //data at fire department
@@ -34,19 +33,4 @@ module top(
     
     
 endmodule
-
-
-
-module concat(
-    input btn1, btn2,
-    output [1:0] concat
-);
-    // Method 2: concat structured assignment:
-    //               1  :  0
-    //               v     v
-    assign concat = {btn1, btn2}; // NOTE: Pay VERY VERY close
-                                  // attention to your order
-
-endmodule
-
 

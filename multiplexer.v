@@ -5,12 +5,12 @@ module multiplexer(
     output [3:0] Y
     );
     
-    wire w[3:0];
+//    wire w1,w2,w3,w4;
     
-    equivalence_check check(.select(Sel), .is_zero(w[0]), .is_one(w[1]), .is_two(w[2]), is_three(w[3]));
+//    equivalence_check check(.select(Sel), .is_zero(w1), .is_one(w2), .is_two(w3), is_three(w4));
 
-    assign Y = (w[0] == 'b00 ? 'b00 : // If 0
-               w[1] == 'b01 ? 'b01 : // If 1
-               w[2] == 'b10 ? 'b10 : 'b11) & Enable; //If 2, then... else 3
+    assign Y = (Sel == 2'b00 ? A : // If 0
+               Sel == 2'b01 ? B : // If 1
+               Sel == 2'b10 ? C : D) & Enable; //If 2, then... else 3
 
 endmodule
