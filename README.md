@@ -15,7 +15,12 @@ In this lab you have learned about multiplexers and demultiplexers.
 
 ### In plain English describe the function and use of a multiplexer.
 
+The function and use of a multiplexer is to provide logic for selecting a combination of multiple inputs and output something based on what is chosen.
+
 ### In plain English describe the function and use of a demultiplexer.
+
+The function and use of a demultiplexer is to provide logic for selecting one input and output a combination of multiple outputs based on what is chosen.
 
 ### What other uses might these circuits have? (Think Shannon’s)
 
+These circuits be used to represent any boolean circuit using Shannon's Expansion Theorem.
